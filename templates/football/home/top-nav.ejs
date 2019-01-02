@@ -1,0 +1,23 @@
+<div class="top-nav">
+    <ul>
+        <li class="home">
+            <img class="logo" />
+        </li>
+        <% for (var i = 0; i < data.length; i++) { %>
+        <li>
+            <a href="<%=data[i].link %>" target="_blank">
+                <%= data[i].title %></a>
+        </li>
+        <% } %>
+        <li class="more">
+            <a>
+                <span>更多</span><i></i>
+            </a>
+        </li>
+        <li class="login">
+            <a>
+                <i></i><span>登录狐友</span>
+            </a>
+        </li>
+    </ul>
+</div>

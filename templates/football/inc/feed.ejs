@@ -1,0 +1,40 @@
+<div class="feedheader">
+    <ul>
+      <% for (var s=0;s<feedList.feedNav.length;s++){ %>
+        <li class=<%= s===0 ? "active_text": "" %> ><div class="text" data-target= <%= s %> ><%= feedList.feedNav[s] %></div><div class=<%= s===0 ? "select_border": "" %> ></div></li>
+      <% }%>
+    </ul>
+</div>
+<div class="feedcontent">
+  <div class="active_feed" data-target="0">
+    <ul class="home">
+      <% for (var i=0; i<feedList.homeNews.length;i++){ %>
+        <% if (feedList.homeNews[i].type === 1){ %>
+          <%- include('./feedType1.ejs', {feed:feedList.homeNews[i]}) %>
+        <% }else if (feedList.homeNews[i].type === 2){ %>
+          <%- include('./feedType2.ejs', {feed:feedList.homeNews[i]}) %>
+        <% }else if (feedList.homeNews[i].type === 3){ %>
+          <%- include('./feedType3.ejs', {feed:feedList.homeNews[i]}) %>
+        <% }%>
+      <% }%>
+    </ul>
+    <div class="getmore btn">查看更多</div>
+  </div>
+  <% for (var j=0;j<feedList.teamNews.length;j++){ %>
+    <div data-target= <%= j+1 %> >
+      <ul>
+        <% var items= feedList.teamNews[j][1] %>
+        <% for (var k=0;k<items.length;k++){ %>
+          <% if (items[k].type === 1){ %>
+            <%- include('./feedType1.ejs', {feed:items[k]}) %>
+          <% }else if (items[k].type === 2){ %>
+            <%- include('./feedType2.ejs', {feed:items[k]}) %>
+          <% }else if (items[k].type === 3){ %>
+            <%- include('./feedType3.ejs', {feed:items[k]}) %>
+          <% }%>
+        <% }%>
+      </ul>
+      <div class="getmore btn">查看更多</div>
+    </div>
+  <% }%>
+</div>

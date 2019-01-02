@@ -1,0 +1,85 @@
+<div class="btns left pointer"><img src="/static/images/left.png" alt="" /></div>
+  <div class="wrapper">
+    <ul>
+      <% match.forEach(function(item){ %>
+        <li class="box">
+          <% if (item.status == 1){ %>
+            <div class="inner_box notstart">
+              <div class="match_header">
+                <span class="order notstart_order"><%= name + '第' + item.gameOrder + '轮' %></span>
+                <span class="status notstart_span"><%= "未开赛" %></span>
+              </div>
+              <div class="match_content">
+                <div class="flags">
+                    <div class="team"><img class="flag" src=<%= item.hTeamData.flag %> alt=""><a class='team_name' href="#"><%= item.hTeamData.teamName.length <= 5?item.hTeamData.teamName:(item.hTeamData.teamName.slice(0,4)+'...') %></a></div>
+                    <div class="team"><img class="flag" src=<%= item.vTeamData.flag %> alt=""><a class='team_name' href="#"><%= item.vTeamData.teamName.length <= 5?item.vTeamData.teamName:(item.vTeamData.teamName.slice(0,4)+'...') %></a></div>
+                </div>
+                <div class="match_time">
+                  <% var time = new Date(item.gameDateTime) %>
+                  <div><%= (time.getMonth() + 1)+ '月'+ time.getDate()+ '日' %></div>
+                  <div><%= (time.getHours()>9?time.getHours():'0' + time.getHours()) + ':' + (time.getMinutes()>9?time.getMinutes():'0' + time.getMinutes()) %></div>
+                </div>
+              </div>
+              <div class="match_footer nostart_footer">查看详情</div>
+            </div>
+          <% }else if (item.status == 2){ %>
+            <div class="inner_box now">
+                <div class="match_header">
+                  <span class="order now_order"><%= name + '第' + item.gameOrder + '轮' %></span>
+                  <span class="status now_span"><%= "进行中" %></span>
+                </div>
+                <div class="flags_over">
+                    <div class="team"><img class="flag" src=<%= item.hTeamData.flag %> alt=""><a class='team_name' href="#"><%= item.hTeamData.teamName.length <= 5?item.hTeamData.teamName:(item.hTeamData.teamName.slice(0,4)+'...') %></a><span class= <%= item.hTeamScore > item.vTeamScore ? 'hot':'' %> ><%= item.hTeamScore %></span></div>
+                    <div class="team"><img class="flag" src=<%= item.vTeamData.flag %> alt=""><a class='team_name' href="#"><%= item.vTeamData.teamName.length <= 5?item.vTeamData.teamName:(item.vTeamData.teamName.slice(0,4)+'...') %></a><span class= <%= item.hTeamScore < item.vTeamScore ? 'hot':'' %> ><%= item.vTeamScore %></span></div>
+                </div>
+                <div class="match_footer"><img src="/static/images/data.png" alt="" />数据</div>
+            </div>
+          <% }else if (item.status == 3 || item.status == 4){ %>
+            <div class="inner_box over">
+                <div class="match_header">
+                  <span class="order over_order"><%= name + '第' + item.gameOrder + '轮' %></span>
+                  <span class="status over_span"><%= "已结束" %></span>
+                </div>
+                <div class="flags_over">
+                    <div class="team"><img class="flag" src=<%= item.hTeamData.flag %> alt=""><a class='team_name' href="#"><%= item.hTeamData.teamName.length <= 5?item.hTeamData.teamName:(item.hTeamData.teamName.slice(0,4)+'...') %></a><span class= <%= item.hTeamScore < item.vTeamScore?'fail':'' %> ><%= item.hTeamScore %></span></div>
+                    <div class="team"><img class="flag" src=<%= item.vTeamData.flag %> alt=""><a class='team_name' href="#"><%= item.vTeamData.teamName.length <= 5?item.vTeamData.teamName:(item.vTeamData.teamName.slice(0,4)+'...') %></a><span class= <%= item.hTeamScore > item.vTeamScore?'fail':'' %> ><%= item.vTeamScore %></span></div>
+                </div>
+                <div class="match_footer"><img src="/static/images/data.png" alt="" />数据</div>
+            </div>
+          <% }else if (item.status == -2 || item.status == 0){ %>
+            <div class="inner_box over">
+                <div class="match_header">
+                  <span class="order over_order"><%= name + '第' + item.gameOrder + '轮' %></span>
+                  <span class="status over_span"><%= "已取消" %></span>
+                </div>
+                <div class="flags_over">
+                    <div class="team"><img class="flag" src=<%= item.hTeamData.flag %> alt=""><a class='team_name' href="#"><%= item.hTeamData.teamName.length <= 5?item.hTeamData.teamName:(item.hTeamData.teamName.slice(0,4)+'...') %></a><span>-</span></div>
+                    <div class="team"><img class="flag" src=<%= item.vTeamData.flag %> alt=""><a class='team_name' href="#"><%= item.vTeamData.teamName.length <= 5?item.vTeamData.teamName:(item.vTeamData.teamName.slice(0,4)+'...') %></a><span>-</span></div>
+                </div>
+                <div class="match_footer nostart_footer">查看详情</div>
+            </div>
+          <% }else if (item.status == -1){ %>
+            <div class="inner_box notstart">
+              <div class="match_header">
+                <span class="order notstart_order"><%= name + '第' + item.gameOrder + '轮' %></span>
+                <span class="status notstart_span"><%= "延期" %></span>
+              </div>
+              <div class="match_content">
+                <div class="flags">
+                    <div class="team"><img class="flag" src=<%= item.hTeamData.flag %> alt=""><a class='team_name' href="#"><%= item.hTeamData.teamName.length <= 5?item.hTeamData.teamName:(item.hTeamData.teamName.slice(0,4)+'...') %></a></div>
+                    <div class="team"><img class="flag" src=<%= item.vTeamData.flag %> alt=""><a class='team_name' href="#"><%= item.vTeamData.teamName.length <= 5?item.vTeamData.teamName:(item.vTeamData.teamName.slice(0,4)+'...') %></a></div>
+                </div>
+                <div class="match_time">
+                  <% var time = new Date(item.gameDateTime) %>
+                  <div><%= (time.getMonth() + 1)+ '月'+ time.getDate()+ '日' %></div>
+                  <div><%= (time.getHours()>9?time.getHours():'0' + time.getHours()) + ':' + (time.getMinutes()>9?time.getMinutes():'0' + time.getMinutes()) %></div>
+                </div>
+              </div>
+              <div class="match_footer nostart_footer" >未开赛</div>
+            </div>
+          <% } %>
+      </li> 
+    <% }); %>
+  </ul>
+</div>
+<div class="btns right pointer"><img src="/static/images/right.png" alt="" /></div>

@@ -1,0 +1,55 @@
+<% if (rankList.type === 'nba') {%>
+<div class="rank-wrap">
+  <div class="nba">
+    <div class="ranknav">
+      <ul>
+        <li>东部</li>
+        <li class="rankline">|</li>
+        <li>西部</li>
+      </ul>
+    </div>
+    <div class="rankcontent">
+      <%- include('./rank/teams-nba-pane.ejs', {data: rankList.teams.Western}) %>
+      <%- include('./rank/teams-nba-pane.ejs', {data: rankList.teams.Eastern}) %>
+    </div>
+  </div>
+</div>
+<% } else if (rankList.type === 'group') { %>
+<div class="rank-wrap">
+  <div class="group">
+    <div class="ranknav">
+      <ul>
+        <li>积分榜</li>
+        <li class="rankline">|</li>
+        <li>射手榜</li>
+        <li class="rankline">|</li>
+        <li>助攻榜</li>
+      </ul>
+    </div>
+    <div class="rankcontent">
+      <%- include('./rank/teams-group-pane.ejs', {data: rankList.teams}) %>
+      <%- include('./rank/shooters.ejs', {data: rankList.shooters}) %>
+      <%- include('./rank/assits.ejs', {data: rankList.assits}) %>
+    </div>
+  </div>
+</div>
+<% } else { %>
+<div class="rank-wrap">
+  <div class="list">
+    <div class="ranknav">
+      <ul>
+        <li>积分榜</li>
+        <li class="rankline">|</li>
+        <li>射手榜</li>
+        <li class="rankline">|</li>
+        <li>助攻榜</li>
+      </ul>
+    </div>
+    <div class="rankcontent">
+      <%- include('./rank/teams-list-pane.ejs', {data: rankList.teams}) %>
+      <%- include('./rank/shooters.ejs', {data: rankList.shooters}) %>
+      <%- include('./rank/assits.ejs', {data: rankList.assits}) %>
+    </div>
+  </div>
+</div>
+<% }%>

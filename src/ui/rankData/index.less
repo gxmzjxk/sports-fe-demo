@@ -1,0 +1,154 @@
+// Item 基础样式
+.itemBase {
+    float: left;
+    line-height: 22px;
+}
+// 单行基础样式
+.lineBase {
+    height: 40px;
+    padding: 9px 0;
+    box-sizing: border-box;
+}
+
+// 单行超过……
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.rank-data-area {
+    background-color: #F8FAFB;
+    .title {
+        font-size: 22px;
+        padding: 14px 0;
+    }
+    .pane {
+        display: none;
+        &.active {
+            display: block;
+        }
+    }
+    .rank-wrap {
+        position: relative;
+    }
+    .titles {
+        box-sizing: border-box;
+        font-size: 0;
+        .tab {
+            position: relative;
+            padding: 12px 0;
+            font-size: 16px;
+            line-height: 24px;
+            display: inline-block;
+            box-sizing: border-box;
+            width: 119px;
+            text-align: center;
+            border-right: 1px solid #eee;
+            border-top: 2px solid transparent;
+            cursor: pointer;
+            &.active {
+                color: #0073E8;
+                border-top: 2px solid #0073E8;
+            }
+            &:last-of-type {
+                border-right: none;
+            }
+        }
+    } // 球队
+    .teams-pane {
+        padding: 0 20px;
+        text-align: center;
+        .team {
+            .itemBase;
+            width: 120px;
+            .rank {
+                .itemBase;
+                width: 26px;
+                height: 22px;
+                background-color: #aaa;
+                color: #fff;
+                border-radius: 2px;
+                &.top {
+                    background-color: #F64141;
+                }
+            }
+            .name {
+                .itemBase;
+                padding-left: 17px;
+            }
+        }
+        .result {
+            .itemBase;
+            width: 120px;
+        }
+        .standing {
+            .itemBase;
+            width: 80px;
+        } //
+        .header {
+            .lineBase;
+            border-bottom: 1px solid #eee;
+        }
+        .list {
+            .item {
+                .lineBase;
+                box-sizing: border-box;
+            }
+        }
+        .more {
+            height: 42px;
+            line-height: 42px;
+            border-top: 1px solid #eee;
+            font-size: 14px;
+        }
+    }
+    .player-pane {
+        padding: 0 20px;
+        text-align: center;
+        .header {
+            .lineBase;
+            border-bottom: 1px solid #eee;
+        }
+        .player {
+            .itemBase;
+            width: 140px;
+            .rank {
+                .itemBase;
+                width: 26px;
+                height: 22px;
+                background-color: #aaa;
+                color: #fff;
+                border-radius: 2px;
+                &.top {
+                    background-color: #F64141;
+                }
+            }
+            .name {
+                .itemBase;
+                width: 97px;
+                padding-left: 17px;
+                .ellipsis;
+            }
+        }
+        .team {
+            .itemBase;
+            width: 100px;
+        }
+        .data {
+            .itemBase;
+            width: 80px;
+        }
+        .list {
+            .item {
+                .lineBase;
+            }
+        }
+        .more {
+            height: 42px;
+            line-height: 42px;
+            border-top: 1px solid #eee;
+            font-size: 14px;
+        }
+    }
+}

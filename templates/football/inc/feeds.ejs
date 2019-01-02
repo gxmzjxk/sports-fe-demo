@@ -1,0 +1,16 @@
+<div class="feedheader">
+    <ul>
+        <% for (var s = 0; s < feedList.nav.length; s++){ %>
+        <li class=<%=s===0 ? "active_text" : "" %> >
+            <div class="text" data-target=<%=s %> >
+                <%= feedList.nav[s] %>
+            </div>
+            <div class=<%= s === 0 ? "select_border" : "" %> ></div>
+        </li>
+        <% }%>
+    </ul>
+</div>
+<div class="feedcontent">
+    <%- include('../../feed-list.ejs', {feedList: feedList.news[0]}) %>
+    <%- include('../../feed-list.ejs', {feedList: feedList.news[1]}) %>
+</div>

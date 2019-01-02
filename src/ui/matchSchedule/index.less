@@ -1,0 +1,139 @@
+.home-match-schedule {
+    position: relative;
+    height: 125px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    .btn {
+        position: absolute;
+        top: 0;
+        width: 25px;
+        height: 125px;
+        box-sizing: border-box;
+        border: 1px solid #eee;
+        background-color: #fff;
+        &.pre {
+            left: 0;
+        }
+        &.next {
+            right: 0;
+        }
+    }
+    .schedule-wrap {
+        margin: 0 35px;
+        overflow-y: hidden;
+        overflow-x: auto;
+    }
+    .match-list {
+        letter-spacing: -3px;
+        white-space: nowrap;
+        li {
+            position: relative;
+            display: inline-block;
+            letter-spacing: 0;
+            width: 180px;
+            height: 125px;
+            padding: 0 10px;
+            box-sizing: border-box;
+            margin-right: 8px;
+            border-width: 2px 1px 1px 1px;
+            border-style: solid;
+            border-color: #eee;
+            .status {
+                position: absolute;
+                right: 10px;
+                top: 8px;
+                width: 42px;
+                height: 18px;
+                background-color: #999;
+                color: #fff;
+                border-radius: 2px;
+                font-size: 12px;
+                line-height: 18px;
+                text-align: center;
+            }
+            &.ing {
+                border-top-color: #F43D60;
+                .status {
+                    background-color: #F43D60;
+                }
+            }
+            &.end {
+                border-top-color: #999;
+            }
+            &.pre {
+                border-top-color: #487AE7;
+                .status {
+                    background-color: #487AE7;
+                }
+            }
+            header {
+                padding: 10px 0;
+            }
+            .teams {
+                float: left;
+                width: 100px;
+                .team {
+                    position: relative;
+                    height: 20px;
+                    padding-left: 30px;
+                    padding-bottom: 9px;
+                    .flag {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 20px;
+                        height: 20px;
+                    }
+                    span {
+                        line-height: 20px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+                }
+            }
+            .progress {
+                float: right;
+                width: 52px;
+                font-size: 16px;
+                &.other {
+                    font-weight: bold;
+                    .line {
+                        height: 20px;
+                        line-height: 20px;
+                        padding-bottom: 9px;
+                        text-align: center;
+                    }
+                }
+                &.pre {
+                    padding: 8px 0;
+                    font-size: 12px;
+                    text-align: center;
+                    .l1 {
+                        padding-bottom: 8px;
+                    }
+                }
+            }
+        }
+        footer {
+            position: relative;
+            width: 158px;
+            height: 30px;
+            line-height: 30px;
+            border-top: 1px solid #eee;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 12px;
+            i {
+                position: absolute;
+                left: 50px;
+                top: 9px;
+                width: 12px;
+                height: 12px;
+                background-color: silver;
+                vertical-align: bottom;
+            }
+        }
+    }
+}

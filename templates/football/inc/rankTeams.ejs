@@ -1,0 +1,13 @@
+<div class="teams">
+    <ul class="rankheader">
+        <li class="rank1">球队</li>
+        <li class="rank2">胜/平/负</li>
+        <li class="rank3">积分</li>
+    </ul>
+    <% if (typeof data.default !== 'undefined') {%>
+        <div class="team-list">普通积分榜</div>
+    <% } else { %>
+        <div class="group-team-list">分组积分榜</div>
+    <% } %>
+    <div class="rankmore">查看更多</div>
+</div>

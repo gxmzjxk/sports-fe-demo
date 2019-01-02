@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../../_head.ejs') %>
+    <title>搜狐体育-频道页</title>
+</head>
+
+<body>
+    <!-- 顶部导航栏 -->
+    <%- include('./top-nav.ejs', { data: topNav }) %>
+    <!-- 联赛title -->
+    <%- include('./top-league.ejs') %>
+    <!-- 频道main-nav -->
+    <%- include('./main-nav.ejs', { data: mainNav }) %>
+    <!-- 主体内容区域 -->
+    <div class="home-main">
+        <%- include('./match-schedule.ejs', { data: matchList }) %>
+        <div class="content">
+            <div class="left-content">
+                <%- include('./feeds.ejs', { data: groupFeeds }) %>
+            </div>
+            <div class="right-content">
+                <%- include('./rank-list.ejs', { data: rankList }) %>
+            </div>
+        </div>
+    </div>
+    <%- include('./fixed-menu.ejs') %>
+    <%- include('../../_script.ejs') %>
+    <script>
+        try {
+            window.sohu_mp.football.home({
+
+            });
+        } catch (e) {
+            console.warn(e);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+<div id="nav-bar-lv1">
+    <div class="main">
+      <ul>
+        <li id="nabar_logo"><a href= <%= navdata.home.url %>  ><img src="/static/images/logo_sport.png" alt="" /></a></li>
+        <% for (var i=0;i<navdata.sameType.length;i++){ %>
+          <li class="item_hover"><a href=<%= navdata.sameType[i].url %> ><%= navdata.sameType[i].name %></a></li>
+        <% }; %>
+        <li class="more item_hover"><a href= <%= navdata.home.url %>  >更多<img src="/static/images/more.png" alt="" /></a></li>
+        <li class="line">|</li>
+        <% for (var i=0;i<navdata.otherType.length;i++){ %>
+          <li class="item_hover"><a href=<%= navdata.otherType[i].url %> ><%= navdata.otherType[i].name %></a></li>
+        <% }; %>
+      </ul>
+    </div>
+</div>

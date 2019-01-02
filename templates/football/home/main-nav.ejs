@@ -1,0 +1,31 @@
+<div class="main-nav">
+    <div class="nav-area">
+        <ul>
+            <li class="channel-logo"></li>
+            <!-- navList 存在且不为空 -->
+            <% if (data.navList && data.navList.length > 0) { %>
+            <% for (var i = 0; i < data.navList.length; i++) { %>
+            <% nav = data.navList[i] %>
+            <li>
+                <div class="title">
+                    <a href="<%= nav.link %>" target="_blank">
+                        <%= nav.title %></a>
+                </div>
+                <div class="content <%- i === 0 ? 'active' : ''%>">
+                    <% if (nav.subChannel && nav.subChannel.length > 0) { %>
+                    <% for (var j = 0; j < nav.subChannel.length; j++) { %>
+                    <% sub = nav.subChannel[j] %>
+                    <div class="wrap">
+                        <a href="<%=sub.link%>">
+                            <%= sub.title %></a>
+                    </div>
+                    <% } %>
+                    <% } %>
+                </div>
+            </li>
+            <% } %>
+            <% } %>
+        </ul>
+    </div>
+
+</div>

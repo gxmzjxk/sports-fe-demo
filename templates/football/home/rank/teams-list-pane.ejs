@@ -1,0 +1,33 @@
+<% if (Array.isArray(data) && data.length > 0) {%>
+<div class="teams-pane">
+    <ul class="header">
+        <li class="team">球队</li>
+        <li class="result">胜/平/负</li>
+        <li class="standing">积分</li>
+    </ul>
+    <ul class="list">
+        <% for(var i = 0, len = data.length; i < len; i ++) {%>
+        <% var item = data[i] %>
+        <li class="item">
+            <div class="team">
+                <div class="rank">
+                    <%= item.place %>
+                </div>
+                <div class="name">
+                    <%= item.teamInfo.teamName %>
+                </div>
+            </div>
+            <div class="result">
+                <%= item.wins %>/<%= item.ties %>/<%= item.losses %> %>
+            </div>
+            <div class="standing">
+                <%= item.points %>
+            </div>
+        </li>
+        <% } %>
+    </ul>
+    <div class="more">查看更多</div>
+</div>
+<% } else { %>
+<div class="tip">积分榜暂时为空……</div>
+<% } %>

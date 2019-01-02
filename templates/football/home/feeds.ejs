@@ -1,0 +1,18 @@
+<% if (Array.isArray(data) && data.length > 0) { %>
+<div class="home-feeds-wrap">
+    <div class="titles-wrap">
+        <ul class="titles">
+            <% for (var i = 0, len = data.length; i < len; i++) { %>
+            <li class="tab" data-index="<%= i %>"><%= data[i].title %></li>
+            <% } %>
+        </ul>
+    </div>
+    <ul class="feeds">
+        <% for (var i = 0, len = data.length; i < len; i++) { %>
+        <li class="pane">
+            <%- include('../../feed-list.ejs', { data: data[i].news }) %>
+        </li>
+        <% } %>
+    </ul>
+</div>
+<% } %>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../inc/_head.ejs %>
+    <title>搜狐体育-频道页</title>
+</head>
+
+<body>
+    <!-- 顶部导航栏 -->
+    <div id="top-nav"><div class="main"></div></div>
+    <!-- 联赛图标 -->
+    <header id="channels-header" class="main"></header>
+    <!-- 频道一级导航 -->
+    <div id="nav-bar"></div>
+    <!-- 频道二级导航 -->
+    <div id="nav-child"></div>
+    <div class="main">
+        <!-- 赛程滑条 -->
+        <div id="carousel"></div>
+        <div id="channelFeed"><%- include('./inc/feed.ejs', {feedList:feedList}) %></div>
+        <div id="rank"><%- include('./inc/rankList.ejs', {rankList:rankList}) %></div>
+    </div>
+    <div id="pagefooter"><%- include ./inc/pagefooter.ejs %></div>
+    <% include ../inc/_script.ejs %>
+    <script>
+        try {
+            window.sohu_mp.channel({
+                curPage: <%- JSON.stringify(curPage) %>,
+                match: <%- JSON.stringify(match) %>,
+                navdata: <%- JSON.stringify(navdata) %>,
+                feedList: <%- JSON.stringify(feedList) %>,
+                rankList: <%- JSON.stringify(rankList) %>
+            });
+        } catch (e) {
+            console.warn(e);
+        }
+    </script>
+</body>
+
+</html>

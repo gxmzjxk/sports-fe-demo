@@ -1,0 +1,10 @@
+<div class="feed-list-wrap">
+    <ul class="feed-list">
+        <% if (Array.isArray(data) && data.length > 0) {%>
+        <% for (var i = 0, len = data.length; i < len; i++) {%>
+        <%- include('./feed-item.ejs', {feed: data[i]}) %>
+        <% } %>
+        <% } %>
+    </ul>
+    <div class="more">查看更多</div>
+</div>

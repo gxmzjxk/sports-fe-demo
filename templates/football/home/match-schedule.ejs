@@ -1,0 +1,58 @@
+<div class="home-match-schedule">
+    <div class="pre btn"></div>
+    <div class="schedule-wrap">
+        <ul class="match-list">
+            <% for(var i = 0, len = data.length; i < len; i ++) {%>
+            <% var match = data[i] %>
+            <li class="<%= match.statusClass%>">
+                <cite class="status">
+                    <%= match.statusShow %></cite>
+                <header>
+                    <%= match.title %>
+                </header>
+                <article class="clearfix">
+                    <div class="teams">
+                        <div class="team h">
+                            <img class="flag" src="<%= match.hflag %>"/>
+                            <span>
+                                <%= match.hname %></span>
+                        </div>
+                        <div class="team v">
+                            <img class="flag" src="<%= match.vflag %>"/>
+                            <span>
+                                <%= match.vname %></span>
+                        </div>
+                    </div>
+                    <% if (match.statusClass === 'pre') { %>
+                    <div class="progress pre">
+                        <div class="line l1">
+                            <%= match.date %>
+                        </div>
+                        <div class="line l2">
+                            <%= match.time %>
+                        </div>
+                    </div>
+                    <% } else { %>
+                    <div class="progress other">
+                        <div class="line l1">
+                            <%= match.hTeamScore %>
+                        </div>
+                        <div class="line l2">
+                            <%= match.vTeamScore %>
+                        </div>
+                    </div>
+                    <% } %>
+                </article>
+                
+                <% if (match.statusClass === 'pre') { %>
+                <footer>未开赛</footer>
+                <% } else { %>
+                <footer><i></i>数据</footer>
+                <% } %>
+            </li>
+            <% } %>
+        </ul>
+    </div>
+
+    <div class="next btn"></div>
+</div>

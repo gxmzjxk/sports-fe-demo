@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../inc/_head.ejs %>
+        <title>搜狐体育-首页</title>
+</head>
+
+<body>
+    <div id="homePage">
+        <% include ../e-nav.ejs %>
+            <% include inc/header.ejs %>
+                <main>
+                    <%- include ./inc/side-bar.ejs %>
+                        <div class="home-feeds">
+                            <%- include("../feed-list.ejs", { dataList: feedList}) %>
+                        </div>
+                </main>
+    </div>
+    <% include ../inc/_script.ejs %>
+    <script>
+        try {
+            window.sohu_mp.home({
+
+            });
+        } catch (e) {
+            console.warn(e);
+        }
+    </script>
+</body>
+
+</html>

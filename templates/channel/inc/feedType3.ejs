@@ -1,0 +1,9 @@
+<li>
+  <div class="feedtext type3">
+    <p class="feedtitle"><a href=<%- 'https://www.sohu.com' + feed.url %>><%= feed.title %></a></p>
+    <% for (var i=0;i<feed.images.length;i++){ %>
+        <a href=<%- 'https://www.sohu.com' + feed.url %>><img class="feedpic multi" src=<%- feed.images[i] %> alt=""  /></a>
+    <% }%>
+    <p class="feedfooter"><span><%= feed.authorName %></span><span class="point">.</span><span><%= feed.publicTime %></span><span class="comment"><%= '评论' %></span></p>
+  </div>
+</li>

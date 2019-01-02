@@ -1,0 +1,60 @@
+<li class="feed-item">
+    <% if (feed.type === 1) { %>
+    <a class="plain-text" href="<%= feed.link %>">
+        <h3 class="title"><%= feed.title %></h3>
+        <footer class="item_info">
+            <div class="name"><%= feed.authorName %></div>
+            <div class="time"><%= feed.showTime %></div>
+            <div class="cmt">0评论</div>
+        </footer>
+    </a>
+    <% } else if (feed.type === 2) { %>
+    <a class="one-pic">
+        <div class="img-wrap">
+            <img class="img" src="<%= feed.picUrl %>"/>
+        </div>
+        <div class="detail">
+            <h3 class="title"><%= feed.title %></h3>
+            <div class="item_info">
+                <div class="name"><%= feed.authorName %></div>
+                <div class="time"><%= feed.showTime %></div>
+                <div class="cmt">0评论</div>
+            </div>
+        </div>
+    </a>
+    <% } else if (feed.type === 3) { %>
+    <a class="multi-pics">
+        <h3 class="title"><%= feed.title %></h3>
+        <% if (Array.isArray(feed.images) && feed.images.length > 0) { %>
+        <div class="imgs-list">
+            <% for (var i = 0, len = feed.images.length; i < len; i++) { %>
+            <% var img = feed.images[i]%>
+                <div class="img-wrap">
+                    <img class="img" src="<%= img %>"/>
+                </div>
+            <% } %>
+        </div>
+        <% } %>
+        <div class="item_info">
+            <div class="name"><%= feed.authorName %></div>
+            <div class="time"><%= feed.showTime %></div>
+            <div class="cmt">0评论</div>
+        </div>
+    </a>
+    <% } else if (feed.type === 4 || feed.type === 5) { %>
+    <a class="one-pic">
+        <div class="img-wrap">
+            <cite class="play-icon"></cite>
+            <img class="img" src="<%= feed.picUrl %>"/>
+        </div>
+        <div class="detail">
+            <h3 class="title"><%= feed.title %></h3>
+            <div class="item_info">
+                <div class="name"><%= feed.authorName %></div>
+                <div class="time"><%= feed.showTime %></div>
+                <div class="cmt">0评论</div>
+            </div>
+        </div>
+    </a>
+    <% } %>
+</li>
